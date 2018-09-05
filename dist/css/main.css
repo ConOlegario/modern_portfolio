@@ -98,7 +98,7 @@ body {
   color: #fff;
   height: 100%;
   margin: 0;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Nanum Brush Script", "Roboto", sans-serif, cursive;
   line-height: 1.5; }
   body#bg-img {
     background: url(../images/mainbg.jpg);
@@ -122,10 +122,11 @@ h3 {
   h1.lg-heading,
   h2.lg-heading,
   h3.lg-heading {
-    font-size: 6rem; }
-  h1.sm-heading,
-  h2.sm-heading,
-  h3.sm-heading {
+    font-size: 8rem;
+    text-shadow: -7px 3px #000; }
+  h1.sm-heading span,
+  h2.sm-heading span,
+  h3.sm-heading span {
     margin-bottom: 2rem;
     padding: 0.2rem 1rem;
     background: rgba(5, 5, 5, 0.5); }
