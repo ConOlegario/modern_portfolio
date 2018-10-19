@@ -1,33 +1,37 @@
-// Select DOM Items
-const menuBtn = document.querySelector(".menu-btn");
-const menu = document.querySelector(".menu");
-const menuNav = document.querySelector(".menu-nav");
-const menuBranding = document.querySelector(".menu-branding");
-const navItems = document.querySelectorAll(".nav-item");
+const countdown = document.querySelector(".countdown");
 
-//Set Initial State of Menu
-let showMenu = false;
+// Set Launch Date
+const launchDate = new Date("Dec 1, 2018 13:00:00").getTime();
 
-menuBtn.addEventListener("click", toggleMenu);
+// Update every second
+const intvl = setInterval(() => {
+  // Get todays date and time (ms)
+  const now = new Date().getTime();
 
-function toggleMenu() {
-  if (!showMenu) {
-    menuBtn.classList.add("close");
-    menu.classList.add("show");
-    menuNav.classList.add("show");
-    menuBranding.classList.add("show");
-    navItems.forEach(item => item.classList.add("show"));
+  // Distance from now to the launch date
+  const distance = launchDate - now;
 
-    // Set Menu State
-    showMenu = true;
-  } else {
-    menuBtn.classList.remove("close");
-    menu.classList.remove("show");
-    menuNav.classList.remove("show");
-    menuBranding.classList.remove("show");
-    navItems.forEach(item => item.classList.remove("show"));
+  // Time Calculations
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor(
+    (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+  );
+  const mins = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  // Display result
+  countdown.innerHTML = `
+  <div>${days} <span>Days</span></div>
+  <div>${hours} <span>Hours</span></div>
+  <div>${mins} <span>Minutes</span></div>
+  <div>${seconds} <span>Seconds</span></div>
+  `;
 
-    // Set Menu State
-    showMenu = false;
+  // If Launch date passed
+  if (distance < 0) {
+    // Stop countdown
+    clearInterval(intvl);
+    // Style and output text
+    countdown.style.color = "#17a2b8";
+    countdown.innerHTML = "Launched!";
   }
-}
+}, 1000);
