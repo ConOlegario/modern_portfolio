@@ -5,7 +5,6 @@
   "main": "index.js",
   "homepage": "https://conolegario.github.io/modern_portfolio",
   "scripts": {
-    "sass": "node-sass -w scss/ -o dist/css/ --recursive",
     "deploy": "gh-pages -d dist"
   },
   "author": "Conrad Olegario",
